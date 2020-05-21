@@ -63,7 +63,7 @@ class Quize extends Component {
       )
     }
     else{
-      null;
+      return null
     }
   }
   
