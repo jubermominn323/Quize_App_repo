@@ -1,6 +1,6 @@
 import React from 'react';
 import { Button, Navbar, Nav, NavDropdown } from 'react-bootstrap'
-import { useHistory } from 'react-router-dom'
+import { Link, useHistory } from 'react-router-dom'
 
 const Navigation = () => {
   const history = useHistory()
@@ -14,7 +14,7 @@ const Navigation = () => {
   <Navbar.Collapse id="basic-navbar-nav" style={{marginLeft:"800px", color:"black"}}>
     <Nav className="mr-auto">
         <NavDropdown title="Home"  id="basic-nav-dropdown" style={{fontSize:"20px"}}>
-        <NavDropdown.Item href="/home" style={{fontSize:"15px"}}>Home</NavDropdown.Item>
+        <NavDropdown.Item style={{fontSize:"15px"}}><Link to="/home">Home</Link></NavDropdown.Item>
         <NavDropdown.Divider />
         <NavDropdown.Item >
           <Button style={{fontSize:"20px"}} onClick={()=>{
