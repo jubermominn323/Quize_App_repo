@@ -52,19 +52,20 @@ class Quize extends Component {
   }
   
 
-  // const displayResult = () => {
-  //   const checkResponse = this.state.responses
-  //   const checkCount = this.state.count
-  //   if( checkResponse === 11 ) {
-  //     return [
-  //     <Result score={this.state.score} playAgain={this.playAgain} count={this.state.count === 0} />;
-  //     checkCount == 0
-  //     ]
-  //   }
-  //   else{
-  //     null;
-  //   }
-  // }
+   displayResult = () => {
+    const checkResponse = this.state.responses
+    if( checkResponse === 11 ) {
+      this.setState({
+        count : 0
+      })
+      return (
+      <Result score={this.state.score} playAgain={this.playAgain} count={this.state.count === 0} />
+      )
+    }
+    else{
+      null;
+    }
+  }
   
   playAgain = () => {
     this.getQuestions();
@@ -112,8 +113,8 @@ class Quize extends Component {
           />
         )}
 
-        {/* {displayResult() } */}
-        {this.state.responses === 11 ? (<Result score={this.state.score} playAgain={this.playAgain}  /> ) : null}
+        {this.displayResult() }
+        {/* {this.state.responses === 11 ? (<Result score={this.state.score} playAgain={this.playAgain}  /> && this.state.count === 0 ) : null} */}
         </div>
       </div>
       
