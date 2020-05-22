@@ -12,7 +12,7 @@ const Signup = () => {
 
   const uploadFields=()=>{
 
-    fetch("api/signup",{
+    fetch("/api/signup",{
     method:"post",
     headers:{
     "Content-Type":"application/json"

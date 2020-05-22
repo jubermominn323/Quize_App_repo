@@ -55,11 +55,13 @@ class Quize extends Component {
    displayResult = () => {
     const checkResponse = this.state.responses
     if( checkResponse === 11 ) {
-      this.setState({
-        count : 0
-      })
+      if(this.state.count !== 0){
+        this.setState({
+          count : 0
+        })
+      }
       return (
-      <Result score={this.state.score} playAgain={this.playAgain} count={this.state.count === 0} />
+      <Result score={this.state.score} playAgain={this.playAgain} />
       )
     }
     else{
@@ -114,7 +116,7 @@ class Quize extends Component {
         )}
 
         {this.displayResult() }
-        {/* {this.state.responses === 11 ? (<Result score={this.state.score} playAgain={this.playAgain}  /> && this.state.count === 0 ) : null} */}
+        {/* {this.state.responses === 11 ? (<Result score={this.state.score} playAgain={this.playAgain}  /> ) : null} */}
         </div>
       </div>
       
