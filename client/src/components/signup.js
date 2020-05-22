@@ -24,7 +24,7 @@ const Signup = () => {
    .then(data=>{
 
        if(data.error){
-        toast.error("Invalid Entry")
+        toast.error("Check your Email ID")
        }
        else{
            toast.success("Account Created")

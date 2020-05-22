@@ -70,26 +70,28 @@
 
 .score-board {
   position: relative;
-  height: 500px;
+  height: 400px;
 }
 
 .score {
-  position: absolute;
+  position: relative;
   font-size: 50px;
-  top: 100px;
-  left:120px;
+  margin-top: 100px;
   text-align: center;
 }
 
+.Btn {
+  position: relative;
+  margin: auto;
+  text-align: center;
+  margin-top: 100px;
+}
 .playBtn {
-  position: absolute;
+  position: relative;
   font-size: 25px;
   border-radius: 10px;
   padding: 10px;
-  top: 300px;
   width: 150px;
-  left: 0px;
-  right: 0px;
   margin: auto;
   outline: none;
   cursor: pointer;
@@ -113,14 +115,31 @@
   font-size: large;
 }
 
+.addpost {
+  width:600px;
+  height: 500px;
+  border: 1px solid darkblue;
+  border-radius: 20px;
+  margin-top: 50px;
+  margin-left: 400px;
+  padding: 10px;
+  box-shadow: 0px 2px 10px darkgray;
+  box-sizing: border-box;
+  font-size: large;
+}
 
 .home-title {
-  position: absolute;
+  position: relative;
   padding: 10px;
 }
 
+.rules {
+  position: relative;
+  padding: 20px;
+}
+
 .start-link {
-  position: absolute;
-  padding: 30px;
-  margin-top: 250px;
+  position: relative;
+  text-align: center;
+  margin-top: 50px;
 }

@@ -8,7 +8,7 @@ const Navigation = () => {
   
     
     return (
-        <Navbar bg="light" expand="lg" sticky="top" className=" mr-sm-2">
+        <Navbar bg="light" expand="lg" sticky="top" className=" mr-sm-0">
   <Navbar.Brand style={{marginLeft:"80px", color:"black", fontSize:"20px"}} ><b>Welcome {userName.name}</b> </Navbar.Brand>
   <Navbar.Toggle aria-controls="basic-navbar-nav "  />
   <Navbar.Collapse id="basic-navbar-nav" style={{marginLeft:"800px", color:"black"}}>
