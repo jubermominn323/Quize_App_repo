@@ -19,7 +19,6 @@ const Home = () => {
                 <li>Each question has 4 options.</li>
                 <li>Only 1 correct between the 4 options. </li>
                 <li>Each question has 10 seconds of time.</li>
-                <li>Play again and try to maximize score and knowledge.</li>
                 <li>If you give more than 5 correct answers you win an exiting prize.</li>
                 
             </ul>   

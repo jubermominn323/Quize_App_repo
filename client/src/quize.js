@@ -52,12 +52,12 @@ showResult = () => {
   }
   if(score > 5 && score <= 7 ) {
     return(
-      <p>Congratulations!<br />You win an iPhone XR</p>
+      <p style={{color:"red"}}>Congratulations!<br />You win an iPhone XR</p>
   )
   }
   else{
     return(
-      <p>Congratulations!<br />You win a MacBook Pro</p>
+      <p> style={{color:"red"}}Congratulations!<br />You win a MacBook Pro</p>
   )
   }
 }
