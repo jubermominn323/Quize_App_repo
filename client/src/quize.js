@@ -1,15 +1,11 @@
 import React, { Component } from "react";
-//import axios from "axios";
-//import { Redirect } from 'react-router-dom'
 import "./assets/style.css";
 import quizeService from "./quizService/index"
 import QuestionBox from "./components/QuestionBox"
 import Result from "./components/result"
-//import Timer from "./components/Timer"
 import Navigation from "./components/navbar"
-//import Footer from "./components/footer"
 
-//axios.defaults.baseURL = process.env.REACT_APP_SERVER_URL;
+
 
 class Quize extends Component {
   state = {
@@ -32,7 +28,7 @@ class Quize extends Component {
         responses: this.state.responses < 11 ? this.state.responses + 1 : this.state.count === 0  
       })      
     })
-    console.log(this.state.responses)
+    // console.log(this.state.responses)
   }
   computeAnswer = (answer, correctAnswer) => {
     const { score  } = this.state;
@@ -45,15 +41,29 @@ class Quize extends Component {
     else {
       this.getQuestions();    
     }
-    
-    // this.setState({
-    //   count: this.state.count > 0 ? 10 : ""
-    // })
-  }
-  
+}
 
-   displayResult = () => {
-    const checkResponse = this.state.responses
+showResult = () => {
+  const score = this.state.score
+  if(score <= 5) {
+      return(
+          <p style={{color:"red"}}>Better Luck Next Time!</p>
+      )
+  }
+  if(score > 5 && score <= 7 ) {
+    return(
+      <p>Congratulations!<br />You win an iPhone XR</p>
+  )
+  }
+  else{
+    return(
+      <p>Congratulations!<br />You win a MacBook Pro</p>
+  )
+  }
+}
+  
+displayResult = () => {
+  const checkResponse = this.state.responses
     if( checkResponse === 11 ) {
       if(this.state.count !== 0){
         this.setState({
@@ -61,7 +71,7 @@ class Quize extends Component {
         })
       }
       return (
-      <Result score={this.state.score} playAgain={this.playAgain} />
+      <Result score={this.state.score} showResult={this.showResult} />
       )
     }
     else{

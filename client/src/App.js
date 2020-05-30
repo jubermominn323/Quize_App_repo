@@ -1,6 +1,7 @@
 import React from 'react';
 import {BrowserRouter,Route,Switch} from 'react-router-dom'
 import Quize from './quize'
+import "./app.css"
 import Signup from './components/signup'
 import Signin from './components/signin'
 import Home from './components/home'
