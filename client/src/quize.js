@@ -107,7 +107,7 @@ displayResult = () => {
         <Navigation />
       <div className="container">
         <div className="title">
-          Quize
+          Quiz
           <div className = "timer">
               Time : {this.state.count > 0 ? this.state.count - 1 : 0} 
           </div>
