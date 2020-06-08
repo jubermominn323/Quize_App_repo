@@ -101,12 +101,12 @@
 }
 
 .addPost {
+  position: relative;
   width:400px;
   height: 500px;
   border: 1px solid darkblue;
   border-radius: 20px;
-  margin-top: 50px;
-  margin-left: 500px;
+  margin: 50px auto;
   padding: 10px;
   box-shadow: 0px 2px 10px darkgray;
   box-sizing: border-box;
@@ -114,12 +114,12 @@
 }
 
 .addpost {
+  position: relative;
   width:600px;
   height: 500px;
   border: 1px solid darkblue;
   border-radius: 20px;
-  margin-top: 50px;
-  margin-left: 400px;
+  margin: 50px auto;
   padding: 10px;
   box-shadow: 0px 2px 10px darkgray;
   box-sizing: border-box;
