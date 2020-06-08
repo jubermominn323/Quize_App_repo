@@ -57,7 +57,7 @@ showResult = () => {
   }
   else{
     return(
-      <p> style={{color:"red"}}Congratulations!<br />You win a MacBook Pro</p>
+      <p style={{color:"red"}}> Congratulations!<br />You win a MacBook Pro</p>
   )
   }
 }
