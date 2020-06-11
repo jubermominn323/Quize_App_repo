@@ -5,7 +5,7 @@ const Leaderboard = () => {
     const [ data, setData ] = useState([])
 
     useEffect(() => {
-        fetch("http://localhost:8000/api/detail",{
+        fetch("api/detail",{
             headers: {
                 "Authorization":"Bearer"
             }
