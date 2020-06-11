@@ -7,7 +7,7 @@ const Result = ({score, showResult}) =>{
     const history = useHistory()
     const userData = JSON.parse(localStorage.getItem("user"))
     const upscore = (id) => {
-        fetch("http://localhost:8000/api/score",{
+        fetch("api/score",{
     method:"put",
     headers:{
     "Content-Type":"application/json"
