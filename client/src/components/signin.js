@@ -42,15 +42,15 @@ const Signin = ( ) => {
         <ul style={{listStyleType:"none"}}>
         <div className="form-group">
         <li><label style={{fontSize:"20px"}} >Email:</label></li>
-            <input type="email" className="form-control-lg" style={{width:"300px"}} value={email} onChange={e => setEmail(e.target.value)} required />
+            <input type="email" className="form-control-lg" style={{height:"40px",width:"90%"}} value={email} onChange={e => setEmail(e.target.value)} required />
         </div>
         <div className="form-group">
         <li><label  style={{fontSize:"20px"}} > Password: </label></li>
-        <input type="password" className="form-control-lg" style={{width:"300px"}} value={password} onChange={e => setPassword(e.target.value)} required />
+        <input type="password" className="form-control-lg" style={{height:"40px",width:"90%"}} value={password} onChange={e => setPassword(e.target.value)} required />
         
         </div>
         <br />
-        <button type="submit" onClick={()=>handleSubmit()} className="btn btn-outline-success btn-block btn-lg" style={{height:"40px"}} > Submit </button>
+        <button type="submit" onClick={()=>handleSubmit()} className="btn btn-outline-success btn-block btn-lg" style={{height:"40px",width:"90%"}} > Submit </button>
         <br />
         <Link to="/signup">
         Don't have an account?
@@ -62,7 +62,7 @@ const Signin = ( ) => {
   return (
     <div className="addPost">
       <ToastContainer />
-    <h1 className="p-5 text-center" style={{fontSize:"30px"}}>Sign in</h1>
+    <h1 className="pt-5 text-center" style={{fontSize:"30px"}}>Sign in</h1>
     {signinForm()}
     </div>
 

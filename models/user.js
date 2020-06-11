@@ -20,6 +20,10 @@ const UserSchema = new mongoose.Schema({
         required: true
     },
     salt: String,
+    score:{
+        type: Number,
+        default: 0,
+    }
 },
 { timestamps: true }
 )

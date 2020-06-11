@@ -13,7 +13,7 @@ app.use(bodyParser.json());
 
 mongoose.connect(process.env.DATABASE_URI, {
     useCreateIndex: true,
-    useFindAndModify: true,
+    useFindAndModify: false,
     useNewUrlParser: true,
     useUnifiedTopology: true
 }).then(() => console.log("DB connected"))

@@ -1,7 +1,7 @@
 const jwt = require("jsonwebtoken")
 const User = require("../models/user")
 
-
+//const ObjectID = require('mongoose').ObjectID;
 
 exports.signUp = (req, res) => {
     const { name, email, password } = req.body
@@ -69,4 +69,32 @@ exports.signIn = (req, res) => {
             message:"Signed in successfully"
         })
     })
+}
+
+
+exports.score = ( req, res ) =>{
+    const { userId, score } = req.body
+    
+    User.updateOne({"_id":userId},{$set:{"score":score}}, function(err, result){
+       if(err){
+           return res.status(422).json({error:err})
+       }
+       else{
+           res.json(result)
+       }
+    })
+}
+
+exports.detail = (req, res ) => {
+    const mysort = { score:-1}
+
+    User.find({}, function (err, result) {
+
+    if(err){
+        return res.status(422).json({error:err})
+    }
+    else{
+        res.json(result)
+    }
+    }).sort(mysort);
 }
