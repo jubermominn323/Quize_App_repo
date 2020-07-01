@@ -23,7 +23,7 @@ const Signup = () => {
    .then(data=>{
 
        if(data.error){
-        toast.error("Fill the correct data.")
+        toast.error(data.error)
        }
        else{
            toast.success("Account Created")
