@@ -54,6 +54,10 @@ const handleSubmit=()=>{
         <small className="form-text text-muted">Password must contain atleast 6 characters.</small>
         </div><br />
         <button type="submit" onClick={()=>handleSubmit()} className="btn btn-outline-success btn-block btn-lg" style={{height:"40px",width:"90%"}} > Submit </button>
+        <br />
+        <Link to="/">
+        Already have an account?
+        </Link>
         </ul>
         </div>
   )
