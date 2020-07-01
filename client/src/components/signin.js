@@ -22,7 +22,7 @@ const Signin = ( ) => {
     console.log(data)
        if(data.error){
          console.log("invalid")
-        toast.error("Invalid Username and Password")
+        toast.error(data.error)
        }
        else{
         localStorage.setItem("token",data.token)   
