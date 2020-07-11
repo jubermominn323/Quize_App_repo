@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { useHistory } from "react-router-dom"
+import { useHistory, Link } from "react-router-dom"
 import { toast, ToastContainer } from "react-toastify";
 import 'react-toastify/dist/ReactToastify.css'
 
@@ -11,7 +11,7 @@ const Signup = () => {
 
   const uploadFields=()=>{
 
-    fetch("/api/signup",{
+    fetch("http://localhost:8000/api/signup",{
     method:"post",
     headers:{
     "Content-Type":"application/json"
@@ -23,7 +23,8 @@ const Signup = () => {
    .then(data=>{
 
        if(data.error){
-        toast.error("Fill the correct data.")
+         console.log(data.error)
+        toast.error(data.error)
        }
        else{
            toast.success("Account Created")
@@ -54,6 +55,10 @@ const handleSubmit=()=>{
         <small className="form-text text-muted">Password must contain atleast 6 characters.</small>
         </div><br />
         <button type="submit" onClick={()=>handleSubmit()} className="btn btn-outline-success btn-block btn-lg" style={{height:"40px",width:"90%"}} > Submit </button>
+        <br />
+        <Link to="/">
+        Already have an account?
+        </Link>
         </ul>
         </div>
   )

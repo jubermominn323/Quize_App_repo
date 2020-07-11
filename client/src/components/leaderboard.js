@@ -5,13 +5,13 @@ const Leaderboard = () => {
     const [ data, setData ] = useState([])
 
     useEffect(() => {
-        fetch("api/detail",{
+        fetch("http://localhost:8000/api/detail",{
             headers: {
                 "Authorization":"Bearer"
             }
         }).then(res=> res.json())
         .then(result=>{
-            console.log(result)
+            
             setData(result)
         })
     },[])

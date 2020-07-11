@@ -1,17 +1,17 @@
-import React, { useState } from "react";
+import React from "react";
 
-const QuestionBox = ({question, options, selected}) => {
-    const [answer ] = useState(options);
+const QuestionBox = ({question, options,queId , selected}) => {
+    
     return (
         <div className="questionBox">
             <div className="question">{question}</div>
-            {answer.map((text, index) => (
+            {options.map((text, index) => (
                 <ul key={index}>
                 <button  
                 className="answerBtn" 
                 onClick = {() =>{
                     
-                    selected(text);
+                    selected(text, queId);
                 }}>
                     {text}
                 </button>

@@ -192,12 +192,6 @@ const qBank = [
     question: "var data = [1, 2, 3, 4, 5, 6]; data.shift(); What does data look like?",
     answers: ["[undefined, 2, 3, 4, 5, 6]", "[2, 3, 4, 5, 6]", "[undefined, 1, 2, 3, 4, 5]", "[6, 1, 2, 3, 4, 5]"],
     correct: "[2, 3, 4, 5, 6]",
-    questionId: "10029"
-  },
-  {
-    question: "var data = [1, 2, 3, 4, 5, 6]; data.shift(); What does data look like?",
-    answers: ["[undefined, 2, 3, 4, 5, 6]", "[2, 3, 4, 5, 6]", "[undefined, 1, 2, 3, 4, 5]", "[6, 1, 2, 3, 4, 5]"],
-    correct: "[2, 3, 4, 5, 6]",
     questionId: "10030"
   },
   {

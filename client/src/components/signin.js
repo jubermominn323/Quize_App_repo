@@ -9,7 +9,7 @@ const Signin = ( ) => {
   const [password, setPassword] = useState("")
 
   const handleSubmit = () =>{
-    fetch("/api/signin",{
+    fetch("http://localhost:8000/api/signin",{
     method:"post",
     headers:{
     "Content-Type":"application/json"
@@ -21,8 +21,8 @@ const Signin = ( ) => {
    .then(data=>{
     console.log(data)
        if(data.error){
-         console.log("invalid")
-        toast.error("Invalid Username and Password")
+         console.log(data.error)
+        toast.error(data.error)
        }
        else{
         localStorage.setItem("token",data.token)   
