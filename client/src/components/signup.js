@@ -23,7 +23,10 @@ const Signup = () => {
    .then(data=>{
 
        if(data.error){
+<<<<<<< HEAD
          console.log(data.error)
+=======
+>>>>>>> 17159dc664837890b49a9342978555e1248de3d9
         toast.error(data.error)
        }
        else{

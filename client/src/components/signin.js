@@ -21,7 +21,11 @@ const Signin = ( ) => {
    .then(data=>{
     console.log(data)
        if(data.error){
+<<<<<<< HEAD
          console.log(data.error)
+=======
+         console.log("invalid")
+>>>>>>> 17159dc664837890b49a9342978555e1248de3d9
         toast.error(data.error)
        }
        else{
