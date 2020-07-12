@@ -19,35 +19,15 @@ class Quize extends Component {
     fetchResult: false,
   };
   
-showResult = () => {
-  const score = this.state.score.score
-  console.log(score)
-  if(score <= 5) {
-      return(
-          <p style={{color:"red"}}>Better Luck Next Time!</p>
-      )
-  }
-  if(score > 5 && score <= 7 ) {
-    return(
-      <p style={{color:"red"}}>Congratulations!<br />You win an iPhone XR</p>
-  )
-  }
-  else{
-    return(
-      <p style={{color:"red"}}> Congratulations!<br />You win a MacBook Pro</p>
-  )
-  }
-}
-  
 displayResult = () => {
       if(this.state.selectedAnswers.length === 0){
         return (
-          <Result score={0} showResult={this.showResult} />
+          <Result score={0} />
           )  
       }
       else{
       return (
-      <Result score={this.state.score.score} showResult={this.showResult} />
+      <Result score={this.state.score.score}  />
       )
     }
     }
@@ -56,10 +36,29 @@ displayResult = () => {
     console.log(this.state.selectedAnswers.length)
     if(this.state.selectedAnswers.length === 0 ){
        this.setState({
-         score: {score : 0},
-         count: 0,
+        count : 0, 
+        score: {score : 0},
+         
        })
        
+       fetch("http://localhost:8000/api/score",{
+        method: "post",
+        headers : {
+          "Content-Type":"application/json",
+          'Accept': 'application/json'
+        },
+        body: JSON.stringify({
+          score : 0,
+          userID: this.state.userInfo._id
+        })
+      })
+    .then(data =>{
+      this.setState({
+        count: 0,
+      })
+    }) 
+      
+         
        return ;
     }
     fetch("http://localhost:8000/api/result",{
@@ -88,28 +87,29 @@ displayResult = () => {
   this.setState({
     count: 0 , selectedAnswers: [...this.state.selectedAnswers, {ans, quesId} ]
   },()=> console.log(this.state.selectedAnswers))
-
-  this.setState({
-    userInfo: JSON.parse(localStorage.getItem("user"))
-  })
-  console.log(this.state.activeQue)
+  
     if(this.state.activeQue === 9){
       console.log(this.state.selectedAnswers.length)
-      this.sendData();
+      // this.sendData();
     }
   }
 
   nextIndex = () =>{
+    console.log(this.state.activeQue)
+    this.setState({
+      userInfo: JSON.parse(localStorage.getItem("user"))
+    })
     if(this.state.activeQue === 9){
+      this.sendData();
       clearInterval(this.myInterval)
-      // this.sendData();
+      
     }
     
     this.setState({
       activeQue: this.state.activeQue + 1
     })
     
-    return 10;
+  return 10;
   }
   componentDidMount() {
     const temp = this

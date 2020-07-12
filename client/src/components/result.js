@@ -3,27 +3,26 @@ import { Button } from 'react-bootstrap'
 import { useHistory } from 'react-router-dom'
 
 
-const Result = ({ score, showResult}) =>{
+const Result = ({ score }) =>{
     const history = useHistory()
-    // const userId = JSON.parse(localStorage.getItem("user"))._id
-    // console.log(userId)
-    // const [score, setScore] = useState(0)
-    // useEffect(() => {
-    //     fetch("http://localhost:8000/api/score",{
-    //         method:"post",
-    //         headers: {
-    //             "Authorization":"Bearer"
-    //         },
-    //         body: JSON.stringify({
-    //             userID : userId 
-    //         }) 
-    //     }).then(res=> res.json())
-    //     .then(result=>{
-    //         console.log(result)
-    //         setScore(result)
-    //     })
-    // })
-    console.log(score)
+
+   const showResult = () => {
+        if(score <= 5) {
+            return(
+                <p style={{color:"red"}}>Better Luck Next Time!</p>
+            )
+        }
+        if(score > 5 && score <= 7 ) {
+          return(
+            <p style={{color:"red"}}>Congratulations!<br />You win an iPhone XR</p>
+        )
+        }
+        else{
+          return(
+            <p style={{color:"red"}}> Congratulations!<br />You win a MacBook Pro</p>
+        )
+        }
+      }
     
 return(
     <div className="score-board">
@@ -31,7 +30,6 @@ return(
         
         
         <div className = "Btn">
-        {/* <Button className = "playBtn" variant="outline-dark" onClick={()=>history.push("/home")}>Return Home</Button> */}
         
         <Button className = "playBtn" variant="outline-dark" onClick={()=>history.push("/leaderboard")}>Check Leaderboard</Button>
         </div>

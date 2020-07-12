@@ -75,26 +75,15 @@ exports.signIn = (req, res) => {
 
 exports.score = (req, res) =>{
     
-    const { userID } = req.body
-    console.log(userID)
-
-    User.findById({"_id":userID} , function(err, result){
-        if(err){
-            return res.status(422).json({error:err})
-        }
-        else{
-            res.json(result)
-        }
+    const { score, userID } = req.body
+    User.updateOne({"_id":userID},{$set:{"score":score}}, function(err, result){
+       if(err){
+           return res.status(422).json({error:err})
+       }
+       else{
+           res.json(result)
+       }
     })
-    // User.updateOne({"_id":userId},{$set:{"score":score}}, function(err, result){
-    //    if(err){
-    //        return res.status(422).json({error:err})
-    //    }
-    //    else{
-    //        res.json(result)
-    //    }
-    // })
-
 }
 
 exports.detail = (req, res ) => {
@@ -163,12 +152,9 @@ exports.randomque = (req, res) =>{
 
 exports.result = (req, res) =>{
     const {answers, quesBank, userID} = req.body
-    console.log(answers)
     
-    console.log(userID)
     let score = 0
-    
-    console.log(quesBank)
+
     answers.map(ele => {
         quesBank.map(e => {
             if(ele.quesId == e._id && ele.ans == e.answer ){
