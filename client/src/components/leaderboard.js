@@ -3,7 +3,7 @@ import Navigation from "./navbar"
 
 const Leaderboard = () => {
     const [ data, setData ] = useState([])
-    const userInfo = JSON.parse(localStorage.getItem("user"))
+    // const userInfo = JSON.parse(localStorage.getItem("user"))
     useEffect(() => {
         fetch("http://localhost:8000/api/detail",{
             headers: {
@@ -15,33 +15,32 @@ const Leaderboard = () => {
             setData(result)
         })
     },[])
-    console.log(data)
     
-    const userScore = () => {
-        data.map(ele => {
+    // const userScore = () => {
+    //     data.map(ele => {
             
-            if(ele._id === userInfo._id ){
-                console.log(ele.name)
-                console.log(ele.score)
-                return (
-                <div className="leader" >
-                <table className="table table-striped">
-                <tbody>
-                <tr>
-                    <th>Your Name</th>
-                    <th>Your Score</th>
-                </tr>
-                <tr>
-                    <td>{ele.name}</td>
-                    <td>{ele.score}</td>
-                </tr>
-                </tbody>
-                </table>
-                </div>    
-                )     
-            }
-        })
-    }
+    //         if(ele._id === userInfo._id ){
+    //             console.log(ele.name)
+    //             console.log(ele.score)
+    //             return (
+    //             <div className="leader" >
+    //             <table className="table table-striped">
+    //             <tbody>
+    //             <tr>
+    //                 <th>Your Name</th>
+    //                 <th>Your Score</th>
+    //             </tr>
+    //             <tr>
+    //                 <td>{ele.name}</td>
+    //                 <td>{ele.score}</td>
+    //             </tr>
+    //             </tbody>
+    //             </table>
+    //             </div>    
+    //             )     
+    //         }
+    //     })
+    // }
 
     return(
         <div>
@@ -51,7 +50,7 @@ const Leaderboard = () => {
                  alt="leader" width="100px" height="100px" /></div>
                 <p style={{textAlign:"center",fontSize:"45px",padding:"10px"}}>Welcome to Leaderboard</p>
             </div>
-            {userScore()}
+            {/* {userScore()} */}
             <div className="leader" >
             <table className="table table-striped">
                 <tbody>
