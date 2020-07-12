@@ -11,7 +11,7 @@ const Signup = () => {
 
   const uploadFields=()=>{
 
-    fetch("http://localhost:8000/api/signup",{
+    fetch("/api/signup",{
     method:"post",
     headers:{
     "Content-Type":"application/json"
