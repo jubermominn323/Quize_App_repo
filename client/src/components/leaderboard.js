@@ -6,7 +6,7 @@ const Leaderboard = () => {
     const [ user, setUser ] = useState([])
     
     useEffect(() => {
-        fetch("http://localhost:8000/api/detail",{
+        fetch("/api/detail",{
             headers: {
                 "Authorization":"Bearer"
             }
@@ -16,7 +16,7 @@ const Leaderboard = () => {
             setData(result)
         })
         const userInfo = JSON.parse(localStorage.getItem("user"))
-        fetch("http://localhost:8000/api/userInfo",{
+        fetch("/api/userInfo",{
             method: "post",
             headers: {
                 "Content-Type":"application/json",

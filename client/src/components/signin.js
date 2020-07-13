@@ -9,7 +9,7 @@ const Signin = ( ) => {
   const [password, setPassword] = useState("")
 
   const handleSubmit = () =>{
-    fetch("http://localhost:8000/api/signin",{
+    fetch("/api/signin",{
     method:"post",
     headers:{
     "Content-Type":"application/json"
