@@ -172,3 +172,17 @@ exports.result = (req, res) =>{
         }
      })
 }
+
+exports.userInfo = (req, res) =>{
+    const {userId} = req.body
+    
+    User.find({"_id":userId}, function (err, result) {
+        if(err){
+            return res.status(422).json({error:err})
+        }
+        else{
+            res.json(result)
+            console.log(result)
+        }
+    })
+}

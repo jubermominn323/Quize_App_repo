@@ -3,9 +3,10 @@ import Navigation from "./navbar"
 
 const Leaderboard = () => {
     const [ data, setData ] = useState([])
-    // const userInfo = JSON.parse(localStorage.getItem("user"))
+    const [ user, setUser ] = useState([])
+    
     useEffect(() => {
-        fetch("/api/detail",{
+        fetch("http://localhost:8000/api/detail",{
             headers: {
                 "Authorization":"Bearer"
             }
@@ -14,34 +15,24 @@ const Leaderboard = () => {
             
             setData(result)
         })
-    },[])
-    
-    // const userScore = () => {
-    //     data.map(ele => {
+        const userInfo = JSON.parse(localStorage.getItem("user"))
+        fetch("http://localhost:8000/api/userInfo",{
+            method: "post",
+            headers: {
+                "Content-Type":"application/json",
+                'Accept': 'application/json'
+            },
+            body: JSON.stringify({
+                userId : userInfo._id
+            })
+        }).then(res=> res.json())
+        .then(result=>{
             
-    //         if(ele._id === userInfo._id ){
-    //             console.log(ele.name)
-    //             console.log(ele.score)
-    //             return (
-    //             <div className="leader" >
-    //             <table className="table table-striped">
-    //             <tbody>
-    //             <tr>
-    //                 <th>Your Name</th>
-    //                 <th>Your Score</th>
-    //             </tr>
-    //             <tr>
-    //                 <td>{ele.name}</td>
-    //                 <td>{ele.score}</td>
-    //             </tr>
-    //             </tbody>
-    //             </table>
-    //             </div>    
-    //             )     
-    //         }
-    //     })
-    // }
-
+            setUser(result)
+        })
+    },[])
+    console.log(user)
+    
     return(
         <div>
             <Navigation />
@@ -50,11 +41,25 @@ const Leaderboard = () => {
                  alt="leader" width="100px" height="100px" /></div>
                 <p style={{textAlign:"center",fontSize:"45px",padding:"10px"}}>Welcome to Leaderboard</p>
             </div>
-            {/* {userScore()} */}
+            
             <div className="leader" >
             <table className="table table-striped">
                 <tbody>
-                    
+                <tr>
+                    <th>Your Name</th>
+                    <th>Your Score</th>
+                </tr>
+                {
+                    user.map(res =>{
+                        return (
+                    <tr key={res._id} >
+                    <td>{res.name}</td>
+                    <td>{res.score}</td>
+                    </tr>
+                    )
+                    })
+                }    
+                
                     <tr>
                         <th>Name</th>
                         <th>Score</th>
@@ -79,22 +84,3 @@ const Leaderboard = () => {
     )
 }
 export default Leaderboard
-
-// if(userInfo._id === data._id){
-        //     return (
-        //         <div className="leader" >
-        //         <table className="table table-striped">
-        //         <tbody>
-        //         <tr>
-        //                 <th>Your Name</th>
-        //                 <th>Your Score</th>
-        //             </tr>
-        //             <tr>
-        //                 <td>{data.name}</td>
-        //                 <td>{data.score}</td>
-        //             </tr>
-        //         </tbody>
-        //         </table>
-        //         </div>    
-        //     )   
-        // }

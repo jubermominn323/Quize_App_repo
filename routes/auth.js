@@ -1,6 +1,6 @@
 const express = require('express')
 const router = express.Router()
-const { signUp, signIn, score, detail, addque, getque, randomque, result } = require("../controllers/auth.js")
+const { signUp, signIn, score, detail, addque, getque, randomque, result, userInfo } = require("../controllers/auth.js")
 const { userSignupValidator, userSigninValidator } = require("../validator/auth")
 const { runValidation } = require("../validator/index")
 
@@ -13,4 +13,6 @@ router.get("/getque", getque)
 router.get("/randomque", randomque)
 router.post("/result", result)
 router.post("/score", score)
+router.post("/userInfo", userInfo)
+
 module.exports = router

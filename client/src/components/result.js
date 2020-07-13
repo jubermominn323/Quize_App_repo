@@ -25,8 +25,10 @@ const Result = ({ score }) =>{
       }
     
 return(
-    <div className="score-board">
-        <div className="score">You Scored {score} / 10 correct answers! <br />{showResult()}</div>
+    <div className="questionBox">
+        <div className="score">You Scored {score} / 10 correct answers! <br />
+            {showResult()}
+        </div>
         
         
         <div className = "Btn">

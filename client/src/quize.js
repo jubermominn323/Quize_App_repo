@@ -41,7 +41,7 @@ displayResult = () => {
          
        })
        
-       fetch("/api/score",{
+       fetch("http://localhost:8000/api/score",{
         method: "post",
         headers : {
           "Content-Type":"application/json",
@@ -61,7 +61,7 @@ displayResult = () => {
          
        return ;
     }
-    fetch("/api/result",{
+    fetch("http://localhost:8000/api/result",{
       method: "post",
       headers : {
         "Content-Type":"application/json",
@@ -116,7 +116,7 @@ displayResult = () => {
     temp.setState({
       fetchResult : false
     })
-    fetch("/api/randomque")
+    fetch("http://localhost:8000/api/randomque")
     .then((res) => res.json())
     .then(ques =>{
       this.setState({ questionBank: ques},
